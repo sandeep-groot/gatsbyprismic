@@ -147,11 +147,7 @@ export const Head = () => {
   return (
     <>
       <title>Home Page</title>;
-      <script
-        async
-        defer
-        src="https://static.cdn.prismic.io/prismic.js?new=true&repo=gatsby-testing-project"
-      ></script>
+      
     </>
   );
 };
