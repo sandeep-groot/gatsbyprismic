@@ -1,6 +1,12 @@
 import * as React from "react";
 import Img from "gatsby-image";
 import { graphql } from "gatsby";
+import ReactHtmlParser, {
+  processNodes,
+  convertNodeToElement,
+  htmlparser2,
+} from "react-html-parser";
+import Layout from "../layouts";
 
 const pageStyles = {
   color: "#232129",
@@ -125,19 +131,13 @@ const headingAccentStyles = {
 //   },
 // ];
 
-const IndexPage = ({ data }) => {
+const IndexPage = (props) => {
+  const { data } = props;
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Hi Congratulations
-        <br />
-        <span style={headingAccentStyles}>
-          — you just made a Gatsby site! 🎉🎉🎉
-        </span>
-      </h1>
-
-      <Img fluid={data?.bannerImage?.childImageSharp?.fluid} />
-    </main>
+    <Layout {...props}>
+      {ReactHtmlParser(data?.homepage?.data?.title?.html)}
+      {/* <Img fluid={data?.bannerImage?.childImageSharp?.fluid} /> */}
+    </Layout>
   );
 };
 
@@ -147,17 +147,25 @@ export const Head = () => {
   return (
     <>
       <title>Home Page</title>;
-      
     </>
   );
 };
 
 export const query = graphql`
   query {
-    bannerImage: file(relativePath: { eq: "test-image.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
+    # bannerImage: file(relativePath: { eq: "test-image.jpg" }) {
+    #   childImageSharp {
+    #     fluid(maxWidth: 1200) {
+    #       ...GatsbyImageSharpFluid
+    #     }
+    #   }
+    # }
+
+    homepage: prismicHomepage {
+      data {
+        title {
+          text
+          html
         }
       }
     }

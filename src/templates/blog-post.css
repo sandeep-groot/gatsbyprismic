@@ -1,0 +1,11 @@
+.blog_wrapper {
+  margin: auto;
+}
+
+.blog_wrapper .block-img {
+  width: 30vw;
+}
+
+.blog_wrapper img {
+  width: 100%;
+}
