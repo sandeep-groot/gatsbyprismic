@@ -16,7 +16,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
-    "gatsby": "^5.0.0",
+    "gatsby": "^3.0.0-next.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^3.3.2",
     "gatsby-plugin-sass": "^6.3.1",
