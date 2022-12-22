@@ -40,9 +40,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
-        run: npm install
+        run: yarn
       - name: Build with Gatsby
-        run: npm run build
+        run: yarn run build
         env:
           GATSBY_PRISMIC_REPO_NAME: "prismic-starter-new"
           PRISMIC_ACCESS_TOKEN: "MC5ZNkd5OUJFQUFDQUFjVFVi.77-9B0zvv70-77-977-9Qu-_vTbvv71oMe-_ve-_ve-_ve-_vWFPelXvv73vv71gfgV7bu-_vT7vv73vv70"
